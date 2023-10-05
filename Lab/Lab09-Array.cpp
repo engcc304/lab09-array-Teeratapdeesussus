@@ -18,14 +18,51 @@
             2
     Output:
         Index:  0  1  2  3  4  5
-        Array:  # 19  #  #  #  2
+        Array:  19 #  #  #  #  2
 */
 
 #include <stdio.h>
 
-int main() {
+int isPrime( int num ) {
+    if ( num <= 1 ) {
+        return 0 ; 
+    }//end if
+    for ( int i = 2 ; i * i <= num ; i++ ) {
+        if ( num % i == 0 ) {
+            return 0 ; 
+        }//end if
+    }//end for
+    return 1 ;
+}//end isPrime
 
-    //--| YOUR CODE HERE
+int main() {
+    int N ;
+    printf( "Enter N: " ) ;
+    scanf( "%d", &N ) ;
+
+    int values[N] ;
+
+
+    for ( int i = 0 ; i < N ; i++ ) {
+        printf( "Enter value[%d]: ", i ) ;
+        scanf( "%d", &values[i] ) ;
+    }//end for
+
+    printf( "Index: " ) ;
+    for ( int i = 0 ; i < N ; i++ ) {
+        printf( "%2d ", i ) ;
+    }//end for
+    printf( "\n" ) ;
+
+    printf( "Array: " ) ;
+    for ( int i = 0 ; i < N ; i++ ) {
+        if ( isPrime( values[i] ) ) {
+            printf( "%2d ", values[i] ) ;
+        } else {
+            printf( " # " ) ;
+        }//end if
+    }//end for
+    printf( "\n" ) ;
 
     return 0 ;
-}//end main function
+}//end function
